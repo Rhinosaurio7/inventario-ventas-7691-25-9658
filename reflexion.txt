@@ -1,0 +1,7 @@
+Reflexión del Proyecto Integrador: Sistema de Inventario y Ventas
+
+Desarrollé un sistema de inventario y ventas para una carnicería llamada “El Buen Corte”. Para organizar la información utilicé una lista de diccionarios para representar los productos, un conjunto para mostrar las categorías sin duplicados y tuplas para almacenar los registros de ventas. También utilicé archivos CSV para conservar el inventario y las ventas, además de un archivo de bitácora para registrar las operaciones con fecha y hora.
+
+Una de las partes más difíciles fue controlar las existencias al registrar una venta. Para resolverlo, el programa verifica que el producto exista y que haya suficiente cantidad antes de descontar los kilogramos vendidos. También implementé la búsqueda parcial por nombre, el ordenamiento del inventario por nombre y precio, la validación de códigos y las alertas de stock mínimo.
+
+**Declaración de uso de inteligencia artificial:** utilicé ChatGPT como apoyo para comprender la organización del proyecto, la modularización y el funcionamiento de las estructuras de datos. Adapté la solución al negocio de una carnicería y revisé las funciones para comprender su propósito. Antes de entregar, realicé pruebas de ejecución y comprobé el registro de ventas, la actualización del inventario y el manejo de errores.
