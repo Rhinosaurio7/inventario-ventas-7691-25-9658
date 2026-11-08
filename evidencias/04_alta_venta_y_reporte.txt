@@ -1,0 +1,95 @@
+$ python main.py   (escenario: datos/inventario.csv inicial)
+Productos cargados: 10
+No hay productos en stock mínimo.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 1
+
+--- AGREGAR PRODUCTO ---
+Código (ej. RES011): BAC200
+Nombre del producto: Brisket
+Categoría: res
+Precio por kilogramo (Q): 40
+Stock inicial en kg: 10
+Stock mínimo en kg: 5
+Producto agregado correctamente.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 3
+
+--- REGISTRAR VENTA ---
+Código del producto: BAC200
+Brisket - Q40.00/kg - Disponible: 10.00 kg
+Cantidad vendida en kg: 5
+Venta registrada. Total a cobrar: Q200.00
+¡Atención! [BAJO] Brisket: 5.00 kg (mínimo 5.00 kg)
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 6
+
+--- VENTAS DEL DÍA (2026-11-07) ---
+HORA       CÓDIGO   PRODUCTO                       KG  PRECIO/KG       TOTAL
+---------------------------------------------------------------------------
+22:37:03   BAC200   Brisket                      5.00 Q    40.00 Q    200.00
+---------------------------------------------------------------------------
+Ventas: 1 | Total vendido: 5.00 kg | Q200.00
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 7
+
+¡ALERTA DE STOCK MÍNIMO!
+- [BAJO] Brisket: 5.00 kg (mínimo 5.00 kg)
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 8
+Cambios guardados. ¡Hasta pronto!
+
+--- bitacora.log ---
+2026-11-07 22:37:03 | Sistema iniciado
+2026-11-07 22:37:03 | Inventario guardado
+2026-11-07 22:37:03 | Producto agregado: BAC200 - Brisket
+2026-11-07 22:37:03 | Inventario guardado
+2026-11-07 22:37:03 | Venta registrada: BAC200 - 5.00 kg - Q200.00
+2026-11-07 22:37:03 | Reporte de ventas del día consultado
+2026-11-07 22:37:03 | Inventario guardado
+2026-11-07 22:37:03 | Sistema cerrado

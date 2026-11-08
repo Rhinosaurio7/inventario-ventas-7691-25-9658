@@ -1,0 +1,90 @@
+$ python main.py   (escenario: datos/inventario.csv inicial)
+Productos cargados: 10
+No hay productos en stock mínimo.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 2
+Código o parte del nombre: pollo
+CÓDIGO     PRODUCTO                 CATEGORÍA         PRECIO/KG   STOCK KG
+--------------------------------------------------------------------------
+POL001     Pechuga de pollo         Pollo          Q     32.00      30.00
+POL002     Alitas de pollo          Pollo          Q     27.00      22.00
+POL003     Muslo de pollo           Pollo          Q     24.00      28.00
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 4
+
+--- INVENTARIO ORDENADO POR NOMBRE ---
+CÓDIGO     PRODUCTO                 CATEGORÍA         PRECIO/KG   STOCK KG
+--------------------------------------------------------------------------
+POL002     Alitas de pollo          Pollo          Q     27.00      22.00
+RES001     Bistec de res            Res            Q     68.00      25.00
+RES003     Carne molida             Res            Q     62.00      20.00
+EMB001     Chorizo                  Embutido       Q     38.00      12.00
+CER001     Chuleta de cerdo         Cerdo          Q     42.00      16.00
+CER002     Costilla de cerdo        Cerdo          Q     45.00      14.00
+RES002     Costilla de res          Res            Q     54.00      18.00
+EMB002     Longaniza                Embutido       Q     36.00      10.00
+POL003     Muslo de pollo           Pollo          Q     24.00      28.00
+POL001     Pechuga de pollo         Pollo          Q     32.00      30.00
+Categorías sin duplicados: Cerdo, Embutido, Pollo, Res
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 5
+
+--- INVENTARIO ORDENADO POR PRECIO ---
+CÓDIGO     PRODUCTO                 CATEGORÍA         PRECIO/KG   STOCK KG
+--------------------------------------------------------------------------
+POL003     Muslo de pollo           Pollo          Q     24.00      28.00
+POL002     Alitas de pollo          Pollo          Q     27.00      22.00
+POL001     Pechuga de pollo         Pollo          Q     32.00      30.00
+EMB002     Longaniza                Embutido       Q     36.00      10.00
+EMB001     Chorizo                  Embutido       Q     38.00      12.00
+CER001     Chuleta de cerdo         Cerdo          Q     42.00      16.00
+CER002     Costilla de cerdo        Cerdo          Q     45.00      14.00
+RES002     Costilla de res          Res            Q     54.00      18.00
+RES003     Carne molida             Res            Q     62.00      20.00
+RES001     Bistec de res            Res            Q     68.00      25.00
+Categorías sin duplicados: Cerdo, Embutido, Pollo, Res
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 8
+Cambios guardados. ¡Hasta pronto!
+
+--- bitacora.log ---
+2026-11-07 22:37:03 | Sistema iniciado
+2026-11-07 22:37:03 | Búsqueda realizada: pollo
+2026-11-07 22:37:03 | Inventario guardado
+2026-11-07 22:37:03 | Sistema cerrado

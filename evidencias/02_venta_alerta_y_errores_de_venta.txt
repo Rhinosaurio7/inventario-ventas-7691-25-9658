@@ -1,0 +1,111 @@
+$ python main.py   (escenario: datos/inventario.csv inicial)
+Productos cargados: 10
+No hay productos en stock mínimo.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 3
+
+--- REGISTRAR VENTA ---
+Código del producto: EMB002
+Longaniza - Q36.00/kg - Disponible: 10.00 kg
+Cantidad vendida en kg: 9
+Venta registrada. Total a cobrar: Q324.00
+¡Atención! [CRÍTICO] Longaniza: 1.00 kg (mínimo 3.00 kg)
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 3
+
+--- REGISTRAR VENTA ---
+Código del producto: EMB002
+Longaniza - Q36.00/kg - Disponible: 1.00 kg
+Cantidad vendida en kg: 5
+Error: Stock insuficiente de EMB002: pides 5.00 kg y hay 1.00 kg.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 3
+
+--- REGISTRAR VENTA ---
+Código del producto: emb002
+Longaniza - Q36.00/kg - Disponible: 1.00 kg
+Cantidad vendida en kg: 0
+Error: La cantidad debe ser mayor que cero.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 3
+
+--- REGISTRAR VENTA ---
+Código del producto: ZZZ999
+Error: No existe un producto con el código 'ZZZ999'.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 6
+
+--- VENTAS DEL DÍA (2026-11-07) ---
+HORA       CÓDIGO   PRODUCTO                       KG  PRECIO/KG       TOTAL
+---------------------------------------------------------------------------
+22:37:03   EMB002   Longaniza                    9.00 Q    36.00 Q    324.00
+---------------------------------------------------------------------------
+Ventas: 1 | Total vendido: 9.00 kg | Q324.00
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 8
+Cambios guardados. ¡Hasta pronto!
+
+--- bitacora.log ---
+2026-11-07 22:37:03 | Sistema iniciado
+2026-11-07 22:37:03 | Inventario guardado
+2026-11-07 22:37:03 | Venta registrada: EMB002 - 9.00 kg - Q324.00
+2026-11-07 22:37:03 | Venta rechazada: Stock insuficiente de EMB002: pides 5.00 kg y hay 1.00 kg.
+2026-11-07 22:37:03 | Venta rechazada: La cantidad debe ser mayor que cero.
+2026-11-07 22:37:03 | Venta rechazada: No existe un producto con el código 'ZZZ999'.
+2026-11-07 22:37:03 | Reporte de ventas del día consultado
+2026-11-07 22:37:03 | Inventario guardado
+2026-11-07 22:37:03 | Sistema cerrado

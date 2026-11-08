@@ -1,0 +1,38 @@
+@startuml casos_de_uso
+title Casos de uso - Sistema de Inventario - Carnicería El Buen Corte
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam dpi 150
+
+actor "Vendedor" as V
+actor "Administrador\nde inventario" as A
+
+rectangle "Sistema de Inventario — Carnicería El Buen Corte" {
+  usecase "Agregar producto" as UC1
+  usecase "Buscar producto" as UC2
+  usecase "Registrar venta" as UC3
+  usecase "Consultar inventario\n(por nombre o precio)" as UC4
+  usecase "Generar reporte\nde ventas del día" as UC5
+  usecase "Consultar alertas\nde stock mínimo" as UC6
+  usecase "Validar código" as UC7
+  usecase "Validar stock" as UC8
+  usecase "Registrar en bitácora" as UC10
+  usecase "Generar alerta de stock mínimo\n(regla de negocio)" as UC9
+}
+
+A --> UC1
+A --> UC2
+A --> UC4
+A --> UC6
+V --> UC2
+V --> UC3
+V --> UC4
+V --> UC5
+
+UC1 .> UC7 : <<include>>
+UC3 .> UC8 : <<include>>
+UC3 .> UC10 : <<include>>
+UC9 .> UC3 : <<extend>>\n[stock ≤ mínimo]
+UC9 .> UC6 : <<extend>>
+@enduml

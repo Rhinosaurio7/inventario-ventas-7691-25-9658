@@ -1,0 +1,205 @@
+@startuml diagrama_clases
+title Diagrama de clases - Sistema de Inventario y Ventas (Carnicería El Buen Corte)
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam dpi 140
+skinparam linetype ortho
+hide empty members
+
+package "excepciones" {
+  class InventarioError
+  class CodigoInvalidoError
+  class DatoInvalidoError
+  class ProductoNoEncontradoError
+  class ProductoDuplicadoError
+  class StockInsuficienteError
+  class ArchivoInventarioError
+}
+
+class Producto {
+  + {static} PATRON_CODIGO: Pattern
+  + {static} CAMPOS_CSV: tuple
+  - _codigo: str
+  - _nombre: str
+  - _categoria: str
+  - _precio: float
+  - _stock: float
+  - _stock_minimo: float
+  + Producto(codigo: str, nombre: str, categoria: str, precio: float, stock: float, stock_minimo: float)
+  + codigo: str
+  + nombre: str
+  + categoria: str
+  + precio: float
+  + stock: float
+  + stock_minimo: float
+  + {static} normalizar(texto: str): str
+  + {static} a_numero(valor, campo: str): float
+  + {static} validar_codigo(codigo: str): str
+  + {static} desde_fila_csv(fila: dict): Producto
+  + verificar_venta(cantidad: float): float
+  + descontar_stock(cantidad: float): None
+  + necesita_reabastecer(): bool
+  + a_fila_csv(): dict
+  + __str__(): str
+  + __repr__(): str
+  + __eq__(otro): bool
+  + __hash__(): int
+}
+
+class Venta <<frozen dataclass>> {
+  + {static} FORMATO_FECHA: str
+  + {static} CAMPOS_CSV: tuple
+  + fecha_hora: str
+  + codigo: str
+  + nombre: str
+  + cantidad_kg: float
+  + precio_kg: float
+  + total: float
+  + {static} crear(producto: Producto, cantidad: float): Venta
+  + {static} desde_fila_csv(fila: dict): Venta
+  + fecha: str
+  + hora: str
+  + a_fila_csv(): dict
+  + __str__(): str
+}
+
+class Inventario {
+  - _productos: dict<str, Producto>
+  + Inventario(productos: iterable)
+  + agregar(producto: Producto): None
+  + obtener(codigo: str): Producto
+  + buscar(consulta: str): list<Producto>
+  + ordenados_por_nombre(): list<Producto>
+  + ordenados_por_precio(): list<Producto>
+  + categorias(): set<str>
+  + __len__(): int
+  + __contains__(codigo: str): bool
+  + __iter__(): Iterator
+  + __repr__(): str
+}
+
+class Alerta <<frozen dataclass>> {
+  + nivel: str
+  + mensaje: str
+  + __str__(): str
+}
+
+abstract class ReglaNegocio {
+  + {abstract} nivel: str
+  + {abstract} aplica(producto: Producto): bool
+  + evaluar(producto: Producto): Alerta
+}
+
+class ReglaAgotado {
+  + ReglaAgotado()
+  + nivel: str
+  + aplica(producto: Producto): bool
+}
+
+class ReglaStockCritico {
+  - _proporcion: float
+  + ReglaStockCritico(proporcion: float)
+  + nivel: str
+  + aplica(producto: Producto): bool
+}
+
+class ReglaStockBajo {
+  + ReglaStockBajo()
+  + nivel: str
+  + aplica(producto: Producto): bool
+}
+
+class AlertaStock {
+  - _reglas: list<ReglaNegocio>
+  + AlertaStock(reglas: list)
+  + evaluar(producto: Producto): Alerta
+  + generar(inventario: Inventario): list<Alerta>
+}
+
+class Bitacora {
+  + {static} FORMATO_FECHA: str
+  - _ruta: Path
+  + Bitacora(ruta: Path)
+  + registrar(mensaje: str): None
+}
+
+class RepositorioCSV {
+  - _ruta_productos: Path
+  - _ruta_ventas: Path
+  + RepositorioCSV(ruta_productos: Path, ruta_ventas: Path)
+  + asegurar_archivos(): None
+  + cargar_inventario(): Inventario
+  + guardar_inventario(inventario: Inventario): None
+  + cargar_ventas(): list<Venta>
+  + guardar_venta(venta: Venta): None
+}
+
+class ReporteInventario {
+  + {static} ANCHO: int
+  + tabla(productos: iterable): str
+}
+
+class ReporteVentas {
+  + {static} ANCHO: int
+  - _ventas: list<Venta>
+  + ReporteVentas(ventas: iterable)
+  + ventas_del_dia(fecha: str): list<Venta>
+  + generar(fecha: str): str
+}
+
+class Consola {
+  + {static} leer(mensaje: str): str
+  + {static} mostrar(texto: str): None
+}
+
+class SistemaInventario {
+  + {static} RAIZ: Path
+  + {static} NOMBRE_TIENDA: str
+  + {static} ARCHIVO_VENTAS: str
+  + {static} ARCHIVO_BITACORA: str
+  - _inventario: Inventario
+  - _ventas: list<Venta>
+  + SistemaInventario(ruta_inventario: Path)
+  + ejecutar(): None
+}
+
+' Herencia
+InventarioError --|> Exception
+CodigoInvalidoError --|> InventarioError
+DatoInvalidoError --|> InventarioError
+ProductoNoEncontradoError --|> InventarioError
+ProductoDuplicadoError --|> InventarioError
+StockInsuficienteError --|> InventarioError
+ArchivoInventarioError --|> InventarioError
+ReglaAgotado --|> ReglaNegocio
+ReglaStockCritico --|> ReglaNegocio
+ReglaStockBajo --|> ReglaNegocio
+
+' Composición, agregación y asociación
+Inventario "1" *-- "0..*" Producto : contiene
+AlertaStock "1" o-- "1..*" ReglaNegocio : usa
+SistemaInventario "1" *-- "1" Inventario
+SistemaInventario "1" *-- "1" RepositorioCSV
+SistemaInventario "1" *-- "1" Bitacora
+SistemaInventario "1" *-- "1" AlertaStock
+SistemaInventario "1" *-- "1" ReporteInventario
+SistemaInventario "1" *-- "1" Consola
+SistemaInventario "1" o-- "0..*" Venta : ventas cargadas
+Venta "0..*" --> "1" Producto : copia código,\nnombre y precio
+
+' Dependencias
+ReglaNegocio ..> Alerta : crea
+ReglaNegocio ..> Producto : evalúa
+RepositorioCSV ..> Inventario : carga y guarda
+RepositorioCSV ..> Venta : carga y guarda
+ReporteInventario ..> Producto : formatea
+ReporteVentas ..> Venta : formatea
+SistemaInventario ..> ReporteVentas : crea
+Producto ..> StockInsuficienteError : lanza
+Producto ..> CodigoInvalidoError : lanza
+Producto ..> DatoInvalidoError : lanza
+Inventario ..> ProductoNoEncontradoError : lanza
+Inventario ..> ProductoDuplicadoError : lanza
+RepositorioCSV ..> ArchivoInventarioError : lanza
+Bitacora ..> ArchivoInventarioError : lanza
+@enduml

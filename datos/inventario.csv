@@ -1,0 +1,12 @@
+codigo,nombre,categoria,precio,stock,stock_minimo
+RES001,Bistec de res,Res,68.00,25.00,5.00
+RES002,Costilla de res,Res,54.00,18.00,4.00
+RES003,Carne molida,Res,62.00,20.00,5.00
+CER001,Chuleta de cerdo,Cerdo,42.00,16.00,4.00
+CER002,Costilla de cerdo,Cerdo,45.00,14.00,3.00
+POL001,Pechuga de pollo,Pollo,32.00,30.00,6.00
+POL002,Alitas de pollo,Pollo,27.00,22.00,5.00
+POL003,Muslo de pollo,Pollo,24.00,28.00,5.00
+EMB001,Chorizo,Embutido,38.00,12.00,3.00
+EMB002,Longaniza,Embutido,36.00,10.00,3.00
+RES012,Brisket,Res,20.00,5.00,2.00

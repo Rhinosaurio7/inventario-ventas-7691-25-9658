@@ -1,0 +1,6 @@
+$ python main.py   (escenario: CSV con datos inválidos)
+Error al cargar los datos: Datos inválidos en inventario.csv: El precio debe ser un número.
+Corrige el archivo e inicia de nuevo.
+
+--- bitacora.log ---
+2026-11-07 22:37:03 | Error al cargar: Datos inválidos en inventario.csv: El precio debe ser un número.

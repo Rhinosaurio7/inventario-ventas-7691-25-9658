@@ -1,0 +1,71 @@
+$ python main.py   (escenario: datos/inventario.csv inicial)
+Productos cargados: 10
+No hay productos en stock mínimo.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 1
+
+--- AGREGAR PRODUCTO ---
+Código (ej. RES011): 2
+Error: Código inválido '2'. Usa tres letras y tres números.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 1
+
+--- AGREGAR PRODUCTO ---
+Código (ej. RES011): RES001
+Ya existe un producto con ese código.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 1
+
+--- AGREGAR PRODUCTO ---
+Código (ej. RES011): CER009
+Nombre del producto:   carne   de   cerdo 
+Categoría: cerdo
+Precio por kilogramo (Q): abc
+Error: El valor ingresado debe ser un número.
+
+=== CARNICERÍA EL BUEN CORTE ===
+1. Agregar producto
+2. Buscar producto
+3. Registrar venta
+4. Inventario ordenado por nombre
+5. Inventario ordenado por precio
+6. Reporte de ventas del día
+7. Alertas de stock mínimo
+8. Salir
+Seleccione una opción (1-8): 8
+Cambios guardados. ¡Hasta pronto!
+
+--- bitacora.log ---
+2026-11-07 22:37:08 | Sistema iniciado
+2026-11-07 22:37:08 | Alta rechazada: Código inválido '2'. Usa tres letras y tres números.
+2026-11-07 22:37:08 | Alta rechazada: código duplicado RES001
+2026-11-07 22:37:08 | Alta rechazada: El valor ingresado debe ser un número.
+2026-11-07 22:37:08 | Inventario guardado
+2026-11-07 22:37:08 | Sistema cerrado
